@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -25,6 +26,7 @@ header p {
   animation: fadeIn 3s ease-in;
 }
 
+/* Surprise Button */
 .card {
   background: #fffaf0;
   border-radius: 20px;
@@ -52,7 +54,72 @@ header p {
   transform: scale(1.1);
 }
 
-/* Gallery */
+/* Intro Section: Meet Us */
+.intro-section {
+  background: #ffe4f0; /* soft pink */
+  padding: 60px 20px;
+  border-radius: 25px;
+  margin: 40px auto;
+  max-width: 1000px;
+  animation: fadeIn 2s ease-in;
+}
+
+.intro-section h2 {
+  font-size: 2.5em;
+  color: #da70d6;
+  margin-bottom: 40px;
+}
+
+.intro-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.person-card {
+  background: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  max-width: 400px;
+  padding: 20px;
+  flex: 1 1 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.person-card img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  border: 3px solid #ffb6c1;
+}
+
+.person-card h3 {
+  color: #5d2a6e;
+  margin-bottom: 10px;
+}
+
+.person-card p {
+  font-size: 1em;
+  color: #4b1f4a;
+}
+
+/* Hover effect */
+.person-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+/* Individual card accent colors */
+.euwan-card {
+  border-top: 5px solid #da70d6; /* purple accent */
+}
+
+.zyann-card {
+  border-top: 5px solid #ff69b4; /* pink accent */
+}
+
+/* Gallery Container for Sections 2–17 */
 .gallery-container {
   display: flex;
   flex-direction: column;
@@ -68,8 +135,8 @@ header p {
   padding: 15px;
   max-width: 400px;
   width: 90%;
-  animation: fadeInUp 1s ease-in;
   opacity: 0; /* start hidden for animation */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .image-card img {
@@ -89,7 +156,7 @@ footer {
   color: #a52a6a;
 }
 
-/* Animations */
+/* Fade-in animations */
 @keyframes fadeIn {
   from {opacity:0;}
   to {opacity:1;}
@@ -100,7 +167,7 @@ footer {
   to {opacity:1; transform: translateY(0);}
 }
 
-/* Floating hearts */
+/* Floating Hearts */
 #hearts {
   position: fixed;
   top: 0;
@@ -110,6 +177,7 @@ footer {
   pointer-events: none;
   overflow: hidden;
 }
+
 .heart {
   position: absolute;
   width: 20px;
@@ -136,3 +204,10 @@ footer {
   0% { transform: translateY(0) rotate(45deg); opacity:1;}
   100% { transform: translateY(-100vh) rotate(45deg); opacity:0;}
 }
+
+/* Unique section variations (optional) */
+.section2 { border-left: 5px solid #ff69b4; }
+.section3 { border-left: 5px solid #da70d6; }
+.section4 { border-left: 5px solid #ffb6c1; }
+.section5 { border-left: 5px solid #c050c0; }
+/* Continue alternating colors for sections 6–17 */
