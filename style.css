@@ -1,43 +1,42 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #fff0f5; /* dirty white / pale pink */
-  color: #5d2a6e; /* purple */
+  background: linear-gradient(135deg, #ffb6c1, #fff0f5, #da70d6);
+  color: #5d2a6e;
   text-align: center;
+  overflow-x: hidden;
+  position: relative;
 }
 
 header {
-  background: #ffb6c1; /* pink */
+  background: rgba(255, 182, 193, 0.8);
   padding: 40px 20px;
+  border-bottom: 3px solid #da70d6;
 }
 
 header h1 {
   margin: 0;
   font-size: 3em;
+  animation: fadeIn 2s ease-in;
+}
+
+header p {
+  font-size: 1.2em;
+  animation: fadeIn 3s ease-in;
 }
 
 .card {
-  background: #fffaf0; /* dirty white */
+  background: #fffaf0;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
+  animation: fadeIn 2s ease-in;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-.card p {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
-button {
-  background: #da70d6; /* purple */
+.card button {
+  background: #da70d6;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -45,30 +44,95 @@ button {
   font-size: 1em;
   cursor: pointer;
   margin-top: 10px;
+  transition: transform 0.2s;
 }
 
-button:hover {
+.card button:hover {
   background: #c050c0;
+  transform: scale(1.1);
 }
 
-.gallery {
+/* Gallery */
+.gallery-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 20px 0;
 }
 
-.gallery img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin: 10px;
-  border-radius: 15px;
-  border: 3px solid #ffb6c1;
+.image-card {
+  background: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  margin: 20px;
+  padding: 15px;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeInUp 1s ease-in;
+  opacity: 0; /* start hidden for animation */
 }
 
+.image-card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.caption {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+/* Footer */
 footer {
   margin: 40px 0;
   font-size: 1em;
   color: #a52a6a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+@keyframes fadeInUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* Floating hearts */
+#hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff69b4;
+  transform: rotate(45deg);
+  animation: floatHeart linear infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff69b4;
+  border-radius: 50%;
+}
+
+.heart:before { top: -10px; left: 0; }
+.heart:after { left: 10px; top: 0; }
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) rotate(45deg); opacity:1;}
+  100% { transform: translateY(-100vh) rotate(45deg); opacity:0;}
 }
